@@ -1,20 +1,21 @@
-version: 1.0
+version: 0.0
 os: linux
 files:
   - source: /app
     destination: /var/www/html/
 permissions:
     - object: /
-    - pattern: "**"
-    - owner: root
+      pattern: "**"
+      owner: root
+      group: root
 hooks:
   ApplicationStop:
     - location: scripts/app_stop.sh
-      timeout: 120
+      timeout: 60
       runas: root  
   BeforeInstall:
     - location: scripts/before_install.sh
-      timeout: 120
+      timeout: 60
       runas: root
   AfterInstall:
     - location: scripts/after_install.sh
@@ -22,5 +23,5 @@ hooks:
       runas: root
   ApplicationStart:
     - location: scripts/app_start.sh
-      timeout: 120
+      timeout: 60
       runas: root
