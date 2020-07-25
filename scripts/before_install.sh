@@ -1,3 +1,3 @@
 #!/bin/bash
-rm -rf /var/www/html
-yum -y update
+sudo rm -rf /var/www/html
+sudo yum -y update
