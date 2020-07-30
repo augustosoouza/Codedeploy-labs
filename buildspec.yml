@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "passo antes do build"
+  build:
+    commands:
+      - echo "build da aplicação"
+      - cd app/
+      - grep -Fq "Devops" index.html
+  post_build:
+    commands:
+        - echo "passo depois do build"
+artifacts:
+  files:
+    - ./index.html
